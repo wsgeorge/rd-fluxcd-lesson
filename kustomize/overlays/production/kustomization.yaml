@@ -24,7 +24,7 @@ patches:
         labels:
           app: "python-course-app-lesson13"
         name: "python-course-app-lesson13-ingress"
-        namespace: krotovhh
+        namespace: production
       spec: 
         rules:
           - host: production.pythonapp.lesson13.local
