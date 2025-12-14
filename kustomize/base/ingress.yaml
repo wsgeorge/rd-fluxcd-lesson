@@ -1,0 +1,24 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    app: "python-course-app-lesson13"
+  name: "python-course-app-lesson13-ingress"
+  namespace: krotovhh
+spec: 
+  rules:
+    - host: pythonapp.lesson13.local
+      http:
+        paths: 
+          - path: /
+            pathType: Prefix
+            backend:
+              service: 
+                name: python-course-app-lesson13-service
+                port: 
+                  number: 80
+  tls:
+    - hosts:
+        - pythonapp.lesson13.local
+  

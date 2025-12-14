@@ -1,0 +1,43 @@
+
+resources:
+  - ../../base
+  - hpa.yaml
+
+namespace: production
+
+replicas:
+  - name: python-course-app-lesson13
+    count: 3
+
+images:
+  - name: krotovhh/course-app
+    newTag: "2.0"
+
+patches:
+  - target:
+        kind: Ingress
+        name: python-course-app-lesson13-ingress
+    patch: |-
+      apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        labels:
+          app: "python-course-app-lesson13"
+        name: "python-course-app-lesson13-ingress"
+        namespace: krotovhh
+      spec: 
+        rules:
+          - host: production.pythonapp.lesson13.local
+            http:
+              paths: 
+                - path: /
+                  pathType: Prefix
+                  backend:
+                    service: 
+                      name: python-course-app-lesson13-service
+                      port: 
+                        number: 80
+        tls:
+          - hosts:
+              - production.pythonapp.lesson13.local
+

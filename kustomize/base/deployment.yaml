@@ -1,0 +1,60 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: "python-course-app-lesson13"
+  name: "python-course-app-lesson13"
+  namespace: krotovhh
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "python-course-app-lesson13"
+  template:
+    metadata:
+      labels:
+        app: "python-course-app-lesson13"
+    spec:
+      containers:
+      - env:
+        - name: APP_STORE
+          value: redis
+        - name: APP_REDIS_URL
+          value: redis://dragonfly-lesson13:6379
+        image: krotovhh/course-app:1.0
+        imagePullPolicy: Always
+        name: python-course-app-lesson13
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 2
+          successThreshold: 1
+        livenessProbe:   
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 5
+          failureThreshold: 2
+          successThreshold: 1
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 2048Mi
+          requests:
+            cpu: 50m
+            memory: 128Mi  
+      restartPolicy: Always
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 4
+...
+
