@@ -6,6 +6,8 @@ metadata:
 spec:
   interval: 1m
   url: ssh://git@github.com/wsgeorge/rd-fluxcd-lesson
+  secretRef:
+    name: flux-system
   ref:
     branch: main
 ---
