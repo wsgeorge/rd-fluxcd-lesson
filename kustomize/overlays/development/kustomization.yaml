@@ -2,7 +2,7 @@
 resources:
   - ../../base
 
-namespace: dev
+namespace: development
 
 replicas:
   - name: python-course-app-lesson13
