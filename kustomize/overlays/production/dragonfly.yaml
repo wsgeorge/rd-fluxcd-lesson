@@ -6,7 +6,7 @@ metadata:
   name: dragonfly-lesson13
   namespace: krotovhh
 spec:
-  replicas: 1
+  replicas: 2
   imagePullPolicy: IfNotPresent
   resources:
     requests:
