@@ -1,0 +1,13 @@
+
+resources:
+  - ../../base
+
+namespace: dev
+
+replicas:
+  - name: python-course-app-lesson13
+    count: 1
+
+images:
+  - name: krotovhh/course-app
+    newTag: "2.0"
