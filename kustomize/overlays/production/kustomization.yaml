@@ -1,5 +1,6 @@
 
 resources:
+  - dragonfly-operator.yaml
   - ../../base
   - hpa.yaml
   - namespaces.yaml
