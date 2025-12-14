@@ -1,9 +1,8 @@
 
 resources:
-  - dragonfly-operator.yaml
   - ../../base
   - hpa.yaml
-  - namespaces.yaml
+  - namespace.yaml
   - dragonfly.yaml
 
 namespace: production
