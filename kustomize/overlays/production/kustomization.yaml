@@ -38,7 +38,7 @@ patches:
                     service: 
                       name: python-course-app-lesson13-service
                       port: 
-                        number: 80
+                        number: 8080
         tls:
           - hosts:
               - production.pythonapp.lesson13.local
