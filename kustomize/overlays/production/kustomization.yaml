@@ -2,6 +2,7 @@
 resources:
   - ../../base
   - hpa.yaml
+  - namespaces.yaml
 
 namespace: production
 

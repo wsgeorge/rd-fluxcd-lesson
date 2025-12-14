@@ -5,6 +5,7 @@ metadata:
   labels:
     app: "python-course-app-lesson13"
   name: "python-course-app-lesson13"
+  namespace: krotovhh
 spec:
   replicas: 1
   selector:
