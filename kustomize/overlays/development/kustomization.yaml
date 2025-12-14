@@ -2,6 +2,7 @@
 resources:
   - ../../base
   - namespace.yaml
+  - dragonfly.yaml
 
 namespace: development
 
