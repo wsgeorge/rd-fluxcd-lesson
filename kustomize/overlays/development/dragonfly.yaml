@@ -4,7 +4,7 @@ metadata:
   labels:
     app: dragonfly-lesson13
   name: dragonfly-lesson13
-  namespace: krotovhh
+  namespace: development
 spec:
   replicas: 1
   imagePullPolicy: IfNotPresent
